@@ -6,7 +6,26 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    gap: 2rem;
+    gap: 1.5rem;
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+
+    gap: 0.25rem;
+}
+
+.error {
+    align-self: flex-end;
+
+    color: var(--clr-primary-red);
+    font-style: italic;
+    font-size: 0.8rem;
+}
+
+.invisible {
+    color: var(--clr-neutral-100);
 }
 
 .input {
@@ -28,11 +47,17 @@
     font-weight: var(--font-weight-semi-bold);
 }
 
-.invalid, .invalid:hover, .invalid:active {
+.invalid {
+    border-color: var(--clr-primary-red);
+    color: var(--clr-primary-red);
+
     background: url(/icon-error.svg);
     background-repeat: no-repeat;
     background-position: calc(100% - 1rem) center;
     background-size: 1rem;
+}
+
+.invalid:focus {
     border-color: var(--clr-primary-red);
 }
 
@@ -82,7 +107,7 @@
 }
 
 @media (min-width: 38rem) {
-    .invalid, .invalid:hover, .invalid:active {
+    .invalid {
         background-size: 1.5rem;
     }
 }
