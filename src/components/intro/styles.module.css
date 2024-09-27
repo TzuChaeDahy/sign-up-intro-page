@@ -17,11 +17,13 @@
     line-height: 1.75;
 }
 
-@media (min-width: 64rem) {
+@media (min-width: 25rem) {
     .container {
         justify-content: center;
     }
+}
 
+@media (min-width: 64rem) {
     .title {
         font-size: 3rem;
         text-align: start;

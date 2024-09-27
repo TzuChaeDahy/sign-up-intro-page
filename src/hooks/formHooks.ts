@@ -18,6 +18,7 @@ interface FormAction {
 }
 
 export interface FormState {
+  canSendData: boolean;
   first: {
     value: string;
     valid: boolean;
@@ -50,8 +51,15 @@ export function formReducer(state: FormState, action: FormAction) {
         first: {
           value: action.payload,
           valid: fitRegex,
-          message: fitRegex ? "" : "First name cannot be empty and must have length greater than 2 characters"
+          message: fitRegex
+            ? ""
+            : "First name cannot be empty and must have length greater than 2 characters",
         },
+        canSendData:
+          fitRegex &&
+          state.last.valid &&
+          state.email.valid &&
+          state.password.valid,
       };
     }
 
@@ -63,8 +71,15 @@ export function formReducer(state: FormState, action: FormAction) {
         last: {
           value: action.payload,
           valid: fitRegex,
-          message: fitRegex ? "" : "Last name cannot be empty and must have length greater than 2 characters",
+          message: fitRegex
+            ? ""
+            : "Last name cannot be empty and must have length greater than 2 characters",
         },
+        canSendData:
+          state.first.valid &&
+          fitRegex &&
+          state.email.valid &&
+          state.password.valid,
       };
     }
 
@@ -78,6 +93,11 @@ export function formReducer(state: FormState, action: FormAction) {
           valid: fitRegex,
           message: fitRegex ? "" : "Email must follow a valid pattern",
         },
+        canSendData:
+          state.first.valid &&
+          state.last.valid &&
+          fitRegex &&
+          state.password.valid,
       };
     }
 
@@ -89,8 +109,15 @@ export function formReducer(state: FormState, action: FormAction) {
         password: {
           value: action.payload,
           valid: fitRegex,
-          message: fitRegex ? "" : "Password must have at least 7 normal characters and 1 special",
+          message: fitRegex
+            ? ""
+            : "Password must have at least 7 normal characters and 1 special",
         },
+        canSendData:
+          state.first.valid &&
+          state.last.valid &&
+          state.email.valid &&
+          fitRegex
       };
     }
   }
