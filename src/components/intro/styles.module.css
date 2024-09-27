@@ -1,0 +1,33 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+
+    flex: 1;
+}
+
+.title {
+    font-weight: var(--font-weight-bold);
+    text-align: center;
+    font-size: 2rem;
+}
+
+.description {
+    text-align: center;
+    line-height: 1.75;
+}
+
+@media (min-width: 64rem) {
+    .container {
+        justify-content: center;
+    }
+
+    .title {
+        font-size: 3rem;
+        text-align: start;
+    }
+
+    .description {
+        text-align: start;
+    }
+}

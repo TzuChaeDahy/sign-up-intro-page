@@ -1,0 +1,35 @@
+.main {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+
+    min-height: 100vh;
+    padding: 3rem 1rem;
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+
+    flex: 1;
+}
+
+@media (min-width: 38rem) {
+    .main {
+        max-width: 38rem;
+        justify-content: center;
+    }
+}
+
+@media (min-width: 64rem) {
+    .main {
+        flex-direction: row;
+        max-width: 72rem;
+        padding: 0 5rem;
+    }
+
+    .wrapper {
+        justify-content: center;
+    }
+}
